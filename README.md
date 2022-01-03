@@ -7,3 +7,13 @@ Cognitive and memory model experiments
 3. Associative access
 4. Associative event reconstruction
 5. 
+
+
+
+
+Tufts faces dataset acknowledgement...
+
+- Website: http://tdface.ece.tufts.edu/ and 
+
+- Paper: Panetta, Karen, Qianwen Wan, Sos Agaian, Srijith Rajeev, Shreyas Kamath, Rahul Rajendran, Shishir Rao et al. "A comprehensive database for benchmarking imaging systems." IEEE Transactions on Pattern Analysis and Machine Intelligence (2018).
+
