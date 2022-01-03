@@ -17,3 +17,5 @@ Tufts faces dataset acknowledgement...
 
 - Paper: Panetta, Karen, Qianwen Wan, Sos Agaian, Srijith Rajeev, Shreyas Kamath, Rahul Rajendran, Shishir Rao et al. "A comprehensive database for benchmarking imaging systems." IEEE Transactions on Pattern Analysis and Machine Intelligence (2018).
 
+Download link, after registration:
+http://tdface.ece.tufts.edu/downloads/
