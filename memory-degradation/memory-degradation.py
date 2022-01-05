@@ -23,34 +23,38 @@ logging.basicConfig(filename='memory-degradation.log', encoding='utf-8', level=l
 logging.warning("REBOOT HAPPENED HERE ===============================================")
 
 from PIL import Image, ImageFilter
-import glob
+import os, os.path
 
 import numpy
 # import cv2 let's try and avoid this dependency
 
 # Load an array of images
-
+path = "/Users/damir00/github/cognition/datasets/tufts_td_cs"
+valid_images = ["*.jpg"]
 image_list = []
-for filename in glob.glob('../datasets/tufts_td_cs/*./jpg'):
-    im = Image.open(filename)
-    image_list.append(im)
+for f in os.listdir(path):
+    logging.info(f)
+    ext =  os.path.splitext(f)[1]
+    if ext.lower() not in valid_images:
+        logging.info("Bad image file")
+    image_list.append(Image.open(os.path.join(path,f)))
+
+# let's debug with a shortened list
+short_image_list = image_list[:3]
+
 logging.info("Imported a directory of images")
-
-# perform guassian blur on each image
-blurred_image_list = []
-for i in image_list:
-    # do the blur - opencv
-    # dst = cv2.GaussianBlur(i, (5,5), cv2.BORDER_DEFAULT)
+logging.info(len(image_list))
+edged_list = []
+blurred_list = []
+# combine blur and edge generation in one loop
+for i in short_image_list:
     i2 = i.filter(ImageFilter.GaussianBlur(radius=2))
-    logging.info("Blurred an image")
-    blurred_image_list.append(i2)
-logging.info("Blurred a list of images")
+    logging.info("Blurred image")
+    i3 = i.filter(ImageFilter.FIND_EDGES)
+    logging.info("Edged image")
+    edged_list.append(i3)
+    blurred_list.append(i2)
 
-# perform edge detect on each image
-edged_image_list = []
-for i in image_list:
-    # let's start with simple Laplacian
-    i2 = i.filter(ImageFilter.FIND_EDGES)
-    logging.info("Edged an image")
-    edged_image_list.append(i2)
-logging.info("Edged a list of images")
+# let's see what detecting facial features can give us
+import cv2
+import dlib
