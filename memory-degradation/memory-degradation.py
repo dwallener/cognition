@@ -1,4 +1,4 @@
-/Users/damir00/miniconda3/bin/python3
+#!/Users/damir00/miniconda3/bin/python3
 
 # keep it simple at first, all memories start at T0
 
