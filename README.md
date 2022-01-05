@@ -28,10 +28,8 @@ Foundational objects and processes for step 5...timeline construction, which is 
 This requires a lot of thought. Keyframes plus interpolation. Associative access. This is where we build the dream, but where does the timeline come from? Need a way to create new memories that stores "video" as a timeline construct, with degradation capability. This is the enchilada.
 
 
-
-Notes and Sources
-=================
-
+Face Datasets
+=============
 
 Tufts faces dataset acknowledgement...
 
@@ -42,6 +40,11 @@ Tufts faces dataset acknowledgement...
 Download link, after registration:
 http://tdface.ece.tufts.edu/downloads/
 
-.dat for DLIB face feature predictor (there are many other possibilities, this is a 68-point version of unclear history
+Facial Feature Recognition
+==========================
 
+.dat for DLIB face feature predictor (there are many other possibilities, this is a 68-point version of unclear history
 https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predictor_68_face_landmarks.dat
+
+Glossary of the facial points can be found here:
+https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/
