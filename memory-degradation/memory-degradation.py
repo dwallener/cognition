@@ -56,7 +56,7 @@ for i in short_image_list:
 # support function to convert between image classes
 # PIL to cv2
 def pil2cv(image_name):
-     pilimage = image_name.convert('RGB')
+     pil_image = image_name.convert('RGB')
      open_cv_image = numpy.array(pil_image)
      # this ridiculouseness flips RGB to BGR
      open_cv_image = open_cv_image[:, :, ::-1].copy()
@@ -65,3 +65,32 @@ def pil2cv(image_name):
 # let's see what detecting facial features can give us
 import cv2
 import dlib
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+
+for i in short_image_list:
+    img = pil2cv(i)
+    faces = detector(img)
+    for face in faces:
+        x1 = face.left() # left point
+        y1 = face.top() # top point
+        x2 = face.right() # right point
+        y2 = face.bottom() # bottom point
+            # Create landmark object
+        landmarks = predictor(image=img, box=face)
+
+        # Loop through all the points
+        for n in range(0, 68):
+            x = landmarks.part(n).x
+            y = landmarks.part(n).y
+            # Draw a circle
+            cv2.circle(img=img, center=(x, y), radius=3, color=(0, 255, 0), thickness=-1)
+
+# show the image
+cv2.imshow(winname="Face", mat=img)
+
+# Wait for a key press to exit
+cv2.waitKey(delay=0)
+
+# Close all windows
+cv2.destroyAllWindows()
