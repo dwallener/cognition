@@ -41,3 +41,7 @@ Tufts faces dataset acknowledgement...
 
 Download link, after registration:
 http://tdface.ece.tufts.edu/downloads/
+
+.dat for DLIB face feature predictor (there are many other possibilities, this is a 68-point version of unclear history
+
+https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predictor_68_face_landmarks.dat
