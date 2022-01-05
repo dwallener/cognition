@@ -52,6 +52,8 @@ for i in short_image_list:
     logging.info("Edged image")
     edged_list.append(i3)
     blurred_list.append(i2)
+    i_merged = Image.blend(i2, i3, 0.5)
+    i_merged.show()
 
 # support function to convert between image classes
 # PIL to cv2
