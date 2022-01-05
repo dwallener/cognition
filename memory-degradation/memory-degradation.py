@@ -30,10 +30,9 @@ import numpy
 
 # Load an array of images
 path = "/Users/damir00/github/cognition/datasets/tufts_td_cs"
-valid_images = ["*.jpg"]
+valid_images = [".jpg"]
 image_list = []
 for f in os.listdir(path):
-    logging.info(f)
     ext =  os.path.splitext(f)[1]
     if ext.lower() not in valid_images:
         logging.info("Bad image file")
@@ -42,8 +41,7 @@ for f in os.listdir(path):
 # let's debug with a shortened list
 short_image_list = image_list[:3]
 
-logging.info("Imported a directory of images")
-logging.info(len(image_list))
+logging.info("Imported a directory of %s images", len(image_list))
 edged_list = []
 blurred_list = []
 # combine blur and edge generation in one loop
@@ -54,6 +52,15 @@ for i in short_image_list:
     logging.info("Edged image")
     edged_list.append(i3)
     blurred_list.append(i2)
+
+# support function to convert between image classes
+# PIL to cv2
+def pil2cv(image_name):
+     pilimage = image_name.convert('RGB')
+     open_cv_image = numpy.array(pil_image)
+     # this ridiculouseness flips RGB to BGR
+     open_cv_image = open_cv_image[:, :, ::-1].copy()
+     return open_cv_image
 
 # let's see what detecting facial features can give us
 import cv2
