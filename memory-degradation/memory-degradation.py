@@ -47,3 +47,10 @@ for i in image_list:
 logging.info("Blurred a list of images")
 
 # perform edge detect on each image
+edged_image_list = []
+for i in image_list:
+    # let's start with simple Laplacian
+    i2 = i.filter(ImageFilter.FIND_EDGES)
+    logging.info("Edged an image")
+    edged_image_list.append(i2)
+logging.info("Edged a list of images")
