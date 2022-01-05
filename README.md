@@ -48,3 +48,6 @@ https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predic
 
 Glossary of the facial points can be found here:
 https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/
+
+![figure_68_markup](https://user-images.githubusercontent.com/5768048/148288961-1e8fa42c-0b56-4f9a-aaf7-d78da33613aa.jpeg)
+
